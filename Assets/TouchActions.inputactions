@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "name": "TouchActions",
+    "maps": [
+        {
+            "name": "TouchMap",
+            "id": "d7753e15-7e5d-4e92-bfca-c57b691f297c",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Button",
+                    "id": "89405953-4ae9-44e5-a9fc-3f49d61fdc39",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TouchPosition",
+                    "type": "Value",
+                    "id": "2ba7c36d-81a9-4253-bfec-a1eb7736db52",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1c4074da-cb5e-4606-83a2-d0b6c87ff4bf",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d958d25d-7689-4fe0-9a0d-1d3d01969db1",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
