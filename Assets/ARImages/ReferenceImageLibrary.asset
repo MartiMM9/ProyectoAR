@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5510539694050371784
+  m_GuidHigh: 9793048100981657480
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5366697805794877093
+      m_GuidHigh: 9801938975099913127
+    m_SerializedTextureGuid:
+      m_GuidLow: 10242460383868713815
+      m_GuidHigh: 13855522343938592954
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: framegameslogo
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5735269226637773944
+      m_GuidHigh: 18019068674145109128
+    m_SerializedTextureGuid:
+      m_GuidLow: 17583196230234321696
+      m_GuidHigh: 8668720961012973354
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: mcdonaldslogo
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5654327437772140664
+      m_GuidHigh: 10229250952432368793
+    m_SerializedTextureGuid:
+      m_GuidLow: 4167135470855264026
+      m_GuidHigh: 8665422976923726219
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: disneylogo
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5499365010973094386
+      m_GuidHigh: 17077715707607282853
+    m_SerializedTextureGuid:
+      m_GuidLow: 12251122096144259236
+      m_GuidHigh: 12876322255442702475
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: warnerbroslogo
+    m_Texture: {fileID: 0}
