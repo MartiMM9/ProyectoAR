@@ -7,6 +7,16 @@ public class GyroscopeController : MonoBehaviour
     [SerializeField] private InputAction rotateCameraPC;
     [SerializeField] private float cameraRotationSpeedPC;
 
+    private void OnEnable()
+    {
+        rotateCameraPC.Enable();
+    }
+
+    private void OnDisable()
+    {
+        rotateCameraPC.Disable();
+    }
+
     void Update()
     {
         if (SystemInfo.supportsGyroscope)
@@ -19,6 +29,7 @@ public class GyroscopeController : MonoBehaviour
             Quaternion correctionGyro = Quaternion.Euler(90, 0, 0);
 
             cameraTransform.rotation *= correctionGyro;
+            Debug.Log("Soporta giroscopio");
 
             /*float rotationCamera = rotateCameraPC.ReadValue<float>();
             cameraTransform.eulerAngles += new Vector3(0, cameraRotationSpeedPC * rotationCamera, 0);*/
