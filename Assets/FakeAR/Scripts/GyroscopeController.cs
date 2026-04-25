@@ -4,19 +4,21 @@ using UnityEngine.InputSystem;
 public class GyroscopeController : MonoBehaviour
 {
     [SerializeField] private Transform cameraTransform;
-    [SerializeField] private InputAction rotateCameraPC;
-    [SerializeField] private float cameraRotationSpeedPC;
+    [SerializeField] private InputAction moveCameraPC;
+    [SerializeField] private float camRotationSpeedPC;
 
-    private void OnEnable()
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void OnEnable()
     {
-        rotateCameraPC.Enable();
+        moveCameraPC.Enable();
     }
 
     private void OnDisable()
     {
-        rotateCameraPC.Disable();
+        moveCameraPC.Disable();
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (SystemInfo.supportsGyroscope)
@@ -29,15 +31,11 @@ public class GyroscopeController : MonoBehaviour
             Quaternion correctionGyro = Quaternion.Euler(90, 0, 0);
 
             cameraTransform.rotation *= correctionGyro;
-            Debug.Log("Soporta giroscopio");
-
-            /*float rotationCamera = rotateCameraPC.ReadValue<float>();
-            cameraTransform.eulerAngles += new Vector3(0, cameraRotationSpeedPC * rotationCamera, 0);*/
         }
         else
         {
-            float rotationCamera = rotateCameraPC.ReadValue<float>();
-            cameraTransform.eulerAngles += new Vector3(0, cameraRotationSpeedPC * rotationCamera, 0);
+            float camRotationPC = moveCameraPC.ReadValue<float>();
+            cameraTransform.eulerAngles += new Vector3(0, camRotationPC * camRotationSpeedPC, 0);
         }
     }
 }

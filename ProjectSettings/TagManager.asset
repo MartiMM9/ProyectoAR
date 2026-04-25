@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Fighter
   - Enemy
+  - FxTemporaire
+  - AttackArea
+  - PlayerHead
   layers:
   - Default
   - TransparentFX

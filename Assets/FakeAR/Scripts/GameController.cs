@@ -5,6 +5,11 @@ using UnityEngine.InputSystem;
 public class GameController : MonoBehaviour
 {
     private PlayerInput playerInput;
+    [SerializeField] private float damage;
+    [SerializeField] private Transform lasergunPos;
+    [SerializeField] private ParticleSystem[] laserbeamParticles;
+    [SerializeField] private GameObject explosionVFX;
+    private float timePassed;
 
     void Start()
     {
@@ -52,6 +57,7 @@ public class GameController : MonoBehaviour
         }
         
         #endregion
+        timePassed += Time.deltaTime;
     }
 
     //Input System
@@ -60,6 +66,22 @@ public class GameController : MonoBehaviour
         if(context.phase == InputActionPhase.Started)
         {
             Vector2 touchPos = playerInput.actions["TouchPosition"].ReadValue<Vector2>();
+            Ray ray = Camera.main.ScreenPointToRay(touchPos);
+            RaycastHit hit;
+            if(Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.CompareTag("Enemy") && timePassed >= 0.15f) 
+                {
+                    timePassed = 0;
+                    hit.collider.GetComponent<SpaceshipController>().TakeDamage(damage);
+                    Instantiate(explosionVFX, hit.point, Quaternion.identity);
+                    lasergunPos.LookAt(hit.point);
+                    for (int i = 0; i < laserbeamParticles.Length; i++)
+                    {
+                        laserbeamParticles[i].Play();
+                    }
+                }
+            }
         }
     }
 }
