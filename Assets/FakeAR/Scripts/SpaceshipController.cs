@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SpaceshipController : MonoBehaviour
@@ -5,13 +6,16 @@ public class SpaceshipController : MonoBehaviour
     [SerializeField] private float life = 100;
     private Rigidbody rb;
     [SerializeField] private float speed;
+    [SerializeField] private float damage;
     [SerializeField] private ParticleSystem[] laserbeams;
     private Transform laserObjective;
+    private PlayerInfo player;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         laserObjective = GameObject.FindGameObjectWithTag("PlayerHead").transform;
+        player = FindAnyObjectByType<PlayerInfo>();
 
         transform.LookAt(Camera.main.transform.position);
         transform.eulerAngles += new Vector3(-90, 0, 0);
@@ -44,6 +48,16 @@ public class SpaceshipController : MonoBehaviour
             {
                 laserbeams[i].Play();
             }
+            StartCoroutine(DealDamage());
+        }
+    }
+
+    IEnumerator DealDamage()
+    {
+        while (true) 
+        {
+            player.TakeDamage(damage);
+            yield return new WaitForSeconds(0.13f);
         }
     }
 }

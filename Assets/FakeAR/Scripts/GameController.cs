@@ -75,11 +75,11 @@ public class GameController : MonoBehaviour
                     timePassed = 0;
                     hit.collider.GetComponent<SpaceshipController>().TakeDamage(damage);
                     Instantiate(explosionVFX, hit.point, Quaternion.identity);
+                }
+                for (int i = 0; i < laserbeamParticles.Length; i++)
+                {
                     lasergunPos.LookAt(hit.point);
-                    for (int i = 0; i < laserbeamParticles.Length; i++)
-                    {
-                        laserbeamParticles[i].Play();
-                    }
+                    laserbeamParticles[i].Play();
                 }
             }
         }
